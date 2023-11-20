@@ -1,0 +1,219 @@
+#Question 1:
+GET ncyrestaurant/_search
+{
+  "size": 0,
+  "aggregations": {
+    "avg_of_bord": {
+      "terms": {
+        "field": "BORO"
+      }
+    }
+  }
+}
+#Question 2:
+GET ncyrestaurant/_search
+{
+  "size": 0,
+  "aggregations": {
+    "avg_of_bord": {
+      "terms": {
+        "field": "BORO",
+        "size": 1,
+         "order": {
+          "_count": "desc"
+        }
+      }      
+    }
+  }
+}
+#Question 3:
+GET ncyrestaurant/_search
+{
+  "size": 1, 
+  "_source": [
+     "VIOLATION DESCRIPTION"
+  ],
+  "query": {
+    "match": {
+      "VIOLATION CODE": "04N"
+    }
+  }
+}
+#Question 4:
+GET ncyrestaurant/_search
+{
+  "_source": [
+     "DBA","STREET","BUILDING","BORO","ZIPCODE"
+  ],
+  "query": {
+    "match": {
+      "GRADE": "A"
+    }
+  }
+}
+#Question 5:
+GET ncyrestaurant/_search
+{
+  "_source": ["STREET"], 
+  "aggregations": {
+    "Cuisine": {
+      "terms": {
+        "field": "CUISINE DESCRIPTION",
+        "size": 1,
+         "order": {
+          "_count": "desc"
+        }
+      }      
+    }
+  }
+}
+#Question 6:
+GET ncyrestaurant/_search
+{
+   "size": 1,
+   "sort": { "INSPECTION DATE": "desc"},
+   "query": {
+      "match_all": {}
+   }
+}
+#Question 7:
+GET ncyrestaurant/_search
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "match": {
+             "CUISINE DESCRIPTION": "Chinese"
+          }
+        },
+        {
+          "match": {
+           "BORO": "Brooklyn"
+          }
+        }
+      ]
+    }
+  }
+}
+#Question 8:
+GET ncyrestaurant/_search
+{
+  "size": 1, 
+   "_source": ["STREET","BUILDING","BORO","ZIPCODE"],
+   "query": {
+     "match": {
+       "DBA": "the LADUREE restaurant"
+     }
+   }
+}
+#Question 9:
+Get ncyrestaurant/_search
+{
+  "_source": ["CUISINE DESCRIPTION"], 
+  "size": 0,
+  "query": {
+    "match": {
+      "VIOLATION DESCRIPTION": "Hot food item not held at or above 140º F"
+    }
+  },
+  "aggs": {
+    "top_cuisine": {
+      "terms": {
+        "field": "CUISINE DESCRIPTION",
+        "size": 1,
+        "order": {
+          "_count": "desc"
+        }
+      }
+    }
+  }
+}
+#Question 10:
+PUT ncyrestaurant/_mapping
+{
+  
+    "properties": {
+      "VIOLATION DESCRIPTION": {
+        "type": "text",
+         "fields":{
+           "keyword":{
+             "type" : "keyword"
+           }
+         }
+      }
+    }
+  
+}
+GET ncyrestaurant/_search
+{
+  "_source": ["VIOLATION CODE", "VIOLATION DESCRIPTION"],
+  "size": 0,
+  "aggs": {
+    "top_violations": {
+      "terms": {
+        "field": "VIOLATION DESCRIPTION.keyword",
+        "size": 5,
+        "order": {
+          "_count": "desc"
+        }
+      }
+    }
+  }
+}
+
+#Question 11:
+PUT new-ncyrestaurant
+{
+  "mappings": {
+    "properties": {
+      "DBA": {
+        "type": "keyword"
+      }
+    }
+  }
+}
+POST _reindex
+{
+  "source": {
+    "index": "ncyrestaurant"
+  },
+  "dest": {
+    "index": "new-ncyrestaurant"
+  }
+}
+DELETE ncyrestaurant
+POST _aliases
+{
+  "actions": [
+    {
+      "remove": {
+        "index": "new-ncyrestaurant",
+        "alias": "ncyrestaurant"
+      }
+    },
+    {
+      "add": {
+        "index": "new-ncyrestaurant",
+        "alias": "ncyrestaurant"
+      }
+    }
+  ]
+}
+GET new-ncyrestaurant/_search
+{
+  "size": 0,
+  "aggs": {
+    "popular_chains": {
+      "terms": {
+        "field": "DBA",
+        "size": 1,
+        "order": {
+          "_count": "desc"
+        }
+      }
+    }
+  }
+}
+
+

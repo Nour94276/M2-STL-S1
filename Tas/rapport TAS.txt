@@ -1,0 +1,11 @@
+l'essence du type 
+qu'est ce qu'il utilise comment les auteurs font ça 
+utilisé le ptrotitype 
+introduit le formalise 
+resume l'épreuve 
+régles du typage de l'article 
+partie personnelle : ce qu'on a testé 
+est ce qu'on arrive à faire le rapport avec qlq chose qu'on a vu dans le cours , avis personnelle sur l'article 
+est ce c'est utile ? important dans la recherche ? critique de notre point de vu 
+
+Inférence de type : tu donne un  terme il te donne son type :
