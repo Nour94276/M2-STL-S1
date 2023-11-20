@@ -1,0 +1,32 @@
+[
+  {
+    "setId": "base1",
+    "setName": "Base",
+    "setImage": "https://images.pokemontcg.io/base1/symbol.png",
+    "cardCount": 102
+  },
+  {
+    "setId": "base2",
+    "setName": "Jungle",
+    "setImage": "https://images.pokemontcg.io/base2/symbol.png",
+    "cardCount": 64
+  },
+  {
+    "setId": "basep",
+    "setName": "Wizards Black Star Promos",
+    "setImage": "https://images.pokemontcg.io/basep/symbol.png",
+    "cardCount": 53
+  },
+  {
+    "setId": "base3",
+    "setName": "Fossil",
+    "setImage": "https://images.pokemontcg.io/base3/symbol.png",
+    "cardCount": 62
+  },
+  {
+    "setId": "base4",
+    "setName": "Base Set 2",
+    "setImage": "https://images.pokemontcg.io/base4/symbol.png",
+    "cardCount": 130
+  }
+]

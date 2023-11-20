@@ -1,0 +1,50 @@
+[
+  {
+    "userAddress": "0xb5b9e3C75e451228A23aD982627aE6C1Cc342aDD",
+    "userName": "User2",
+    "haveBooster": false,
+    "BoosterNumber": 0
+  },
+  {
+    "userAddress": "0x11dc5ec3B2eB44707CE20a842089e492D5E9bB6a",
+    "userName": "User2",
+    "haveBooster": false,
+    "BoosterNumber": 0
+  },
+  {
+    "userAddress": "0x11dc5ec3B2eB44707CE20a842089e492D5E9bB6a",
+    "userName": "User3",
+    "haveBooster": false,
+    "BoosterNumber": 0
+  },
+  {
+    "userAddress": "0x65F920612a0feCc862C8EC2926AE116c20158eBb",
+    "userName": "User4",
+    "haveBooster": false,
+    "BoosterNumber": 0
+  },
+  {
+    "userAddress": "0x11dc5ec3B2eB44707CE20a842089e492D5E9bB6a",
+    "userName": "User5",
+    "haveBooster": false,
+    "BoosterNumber": 0
+  },
+  {
+    "userAddress": "0x6458a4D55c3dF02dEA58cD9fFa98972F0B0b3F46",
+    "userName": "User6",
+    "haveBooster": false,
+    "BoosterNumber": 0
+  },
+  {
+    "userAddress": "0x6458a4D55c3dF02dEA58cD9fFa98972F0B0b3F46",
+    "userName": "User7",
+    "haveBooster": false,
+    "BoosterNumber": 0
+  },
+  {
+    "userAddress": "0xB45f0018845b4a70a72cAbEAD18037D12635af18",
+    "userName": "User8",
+    "haveBooster": false,
+    "BoosterNumber": 0
+  }
+]
